@@ -1,0 +1,193 @@
+.challenge-container{
+    background: url(../img/background.jpg);
+}
+.top-container{
+    background: url(../img/background.jpg);
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    
+}
+.header {
+    font-size: 30px;
+    color: #ffffff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.header-container{
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+
+}
+.content-container{
+    display: flex;
+    justify-content: center;
+}
+.list-players{
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 60%;
+    height: 500px;
+}
+.players{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+.player-score{
+    width: 10%;
+    background: rgb(37, 153, 21);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.player-display-name{
+    width: 50%;
+    background: rosybrown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.player-sequence{
+    width: 30px;
+    height: 30px;
+    background: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.player-status{
+    width: 4%;
+    background: rgb(200, 233, 12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.player-circle{
+    width: 30px;
+    height: 30px;
+    background: #008a00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.form-player{
+    width: 150px;
+    height: 60%;
+    margin-left: 100px;
+    
+}
+.player{
+    width: 100%;
+    height: 70px;
+    background: #0099ff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border-radius: 10px; */
+}
+.text{
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+.btn-player{
+    background: none;
+    width: 100%;
+    height: 70px;
+}
+.top-container .btn{
+    width: 100%;
+    height: 70px;
+}
+.challenge-container .btn{
+    width: 100%;
+    height: 70px;
+}
+.challenge-container .name{
+    width: 550px;
+}
+
+@media screen and (max-width : 768px ){
+    .challenge-container{
+        width: 100%;
+    }
+    .list-players{
+        width: 100%;
+        margin-left: 20px;
+    }
+    .player-status{
+        width: 5%;
+        
+    }
+    .table{
+        width: 60%;
+        height: 50%;
+        margin-left: 60px;
+    }
+    .cell{
+        width: 10px;
+        height: 10px;
+    }
+    .table-chess{
+        width: 70%;
+        margin-left: 30px;
+    }
+    .chess-container{
+        width:100%;
+    }
+    .form-player{
+        max-width: 100%;
+    }
+    .player{
+        width: 60px;
+        height: 50px;
+        text-align: center;
+        font-size: 10px;
+    }
+    .btn-player{
+        width: 100px;
+        /* height: 1000px; */
+        
+    }
+    .top-container .btn{
+        font-size: 10px;
+        height: 50px;
+    }
+    .fa{
+
+        
+    }
+}
+@media screen and (max-width : 380px ){
+    .cell{
+        width: 5px;
+        
+    }
+}
+@media screen and (max-width : 1200px ){
+    .table{
+        width: 80%;
+        height: 482px;
+    }
+    .chess-container{
+        width: 100%;
+    }
+    .table-chess{
+        width: 85%;
+        margin-left: 25px;
+    }
+}
+@media screen and (max-width : 1000px ){
+    .player{
+        width: 100px;
+        text-align: center;
+    }
+}
