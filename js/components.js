@@ -4,7 +4,7 @@ component.login = `
 <div class="login-container">
 <div class="aside-right">
     <div class="header">
-        <img src="../img/avatar1.svg">
+        <img src="../img/avatar1.png">
     </div>
     <form id="login-form">
         <div class="input-name-wrapper">
@@ -106,7 +106,7 @@ component.lobby = `
                 <div class="text">
                     <h3>Xin chào</h3>
                 </div>
-                 <div class="text">
+                 <div class="text" id="name-user">
                     Thắng
                 </div>
             </div>
@@ -170,7 +170,7 @@ component.challengeScreen = `
                 <div class="text">
                     <h3>Xin chào</h3>
                 </div>
-                <div class="text">
+                <div class="text" id="name-user">
                     Thắng
                 </div>
             </div>
@@ -220,7 +220,7 @@ component.fight = `
                     <div class="text">
                         <h3>Xin chào</h3>
                     </div>
-                    <div class="text">
+                    <div class="text" id="name-user">
                         Thắng
                     </div>
                 </div>

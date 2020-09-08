@@ -66,7 +66,7 @@ view.showScreen = function (name) {
 
             // phải gọi giống như chỗ này
             controller.subscribeRealtimeUpdate.push(controller.listenPlayersStatusChanged());
-
+            document.querySelector('#name-user').innerHTML = model.currentUser.displayName
             const backToLogin = document.getElementById('back-to-login')
             backToLogin.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -81,6 +81,7 @@ view.showScreen = function (name) {
 
         case 'fight':
             document.getElementById('app').innerHTML = component.fight
+            document.querySelector('#name-user').innerHTML = model.currentUser.displayName
             // controller.subscribeRealtimeUpdate.push(controller.listenCurrentChallengeUpdate());
             view.showCurrentChallenge()
             const backLobby = document.getElementById('back-lobby')
@@ -91,7 +92,7 @@ view.showScreen = function (name) {
 
         case 'challengeScreen':
             document.getElementById('app').innerHTML = component.challengeScreen
-
+            document.querySelector('#name-user').innerHTML = model.currentUser.displayName
             controller.subscribeRealtimeUpdate.push(controller.listenRequestChallengeComing());
 
             const backToLobby = document.getElementById('back-to-lobby')
@@ -154,7 +155,6 @@ view.showChallenges = function () {
 //                 </div>
 //             </div>
 //             `
-    
 //     document.querySelector('.player').innerHTML = html;
 // }
 view.showCurrentChallenge = function () {
