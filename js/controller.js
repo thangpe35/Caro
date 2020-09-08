@@ -226,22 +226,41 @@ controller.hitOnTable = function (i, j) {
     });
 }
 
-controller.listenCurrentChallengeUpdate = async function () {
+controller.listenCurrentChallengeUpdate = function () {
 
-    firebase.firestore().collection('challenges').doc(model.currentChallenge.id).onSnapshot(function (doc) {
-        model.currentChallenge = getDataFromDoc(doc);
+    //     let sub = firebase.firestore().collection('challenges').doc(model.currentChallenge.id).onSnapshot(function (doc) {
+    //         if(doc.exists){
+    //             model.currentChallenge = getDataFromDoc(doc);
 
-        view.showTable();
+    //             view.showTable();
+
+    //             let winner = checkTable(JSON.parse(model.currentChallenge.table));
+    //             if (winner != null) {
+    //                 controller.endFight(winner);
+    //             }
+    //         }
+
+    //     });
+    //  return sub
+
+    return firebase.firestore().collection('challenges').onSnapshot(function (response) {
+        let challenges = getDataFromDocs(response.docs)
+        let currentChallenge = challenges.find(function (challenge) {
+            return challenge.id == model.currentChallenge.id
+        })
 
         let winner = checkTable(JSON.parse(model.currentChallenge.table));
         if (winner != null) {
             controller.endFight(winner);
+            return
         }
+        model.currentChallenge = currentChallenge;
+        view.showTable();
+    })
 
-    });
 }
 
-controller.endFight = async function (winner) {
+controller.endFight = async function (winner, unsubscribe) {
     let winnerEmail = (winner == 0) ? model.currentChallenge.from : model.currentChallenge.to;
     alert(winnerEmail + ' đã giành chiến thắng');
 
@@ -256,6 +275,7 @@ controller.endFight = async function (winner) {
     });
 
     // sau khi fight xong thì phải xóa challenge đi
+
     await firebase.firestore().collection('challenges').doc(model.currentChallenge.id).delete();
     model.currentChallenge = null;
     view.showScreen("lobby");

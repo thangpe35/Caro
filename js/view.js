@@ -62,11 +62,13 @@ view.showScreen = function (name) {
             })
             break;
         case 'lobby':
+            console.log('aa')
             document.getElementById('app').innerHTML = component.lobby
-
-            // phải gọi giống như chỗ này
+            
             controller.subscribeRealtimeUpdate.push(controller.listenPlayersStatusChanged());
+
             document.querySelector('#name-user').innerHTML = model.currentUser.displayName
+            document.querySelector('#score-user').innerHTML = model.currentUser.score
             const backToLogin = document.getElementById('back-to-login')
             backToLogin.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -82,7 +84,8 @@ view.showScreen = function (name) {
         case 'fight':
             document.getElementById('app').innerHTML = component.fight
             document.querySelector('#name-user').innerHTML = model.currentUser.displayName
-            // controller.subscribeRealtimeUpdate.push(controller.listenCurrentChallengeUpdate());
+            controller.subscribeRealtimeUpdate.push(controller.listenCurrentChallengeUpdate())
+
             view.showCurrentChallenge()
             const backLobby = document.getElementById('back-lobby')
             backLobby.addEventListener('click', ()=>{
@@ -93,8 +96,8 @@ view.showScreen = function (name) {
         case 'challengeScreen':
             document.getElementById('app').innerHTML = component.challengeScreen
             document.querySelector('#name-user').innerHTML = model.currentUser.displayName
+            document.querySelector('#score-user').innerHTML = model.currentUser.score
             controller.subscribeRealtimeUpdate.push(controller.listenRequestChallengeComing());
-
             const backToLobby = document.getElementById('back-to-lobby')
             backToLobby.addEventListener('click', (e) => {
                 view.showScreen('lobby')
@@ -144,19 +147,7 @@ view.showChallenges = function () {
 
     document.querySelector('.list-players').innerHTML = html;
 }
-// view.showPlayer = () =>{
-//     let html = `
-//     <div class = "score-number">
-//                 <div class="text">
-//                     <h3>Xin chào</h3>
-//                 </div>
-//                  <div class="text">
-//                     ${model.currentUser}
-//                 </div>
-//             </div>
-//             `
-//     document.querySelector('.player').innerHTML = html;
-// }
+
 view.showCurrentChallenge = function () {
     view.showTable();
 }

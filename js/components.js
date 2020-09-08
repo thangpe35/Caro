@@ -116,15 +116,15 @@ component.lobby = `
                 <div class="text">
                     <h3>Điểm số</h3>
                 </div>
-                <div class="text">
-                    2157
+                <div class="text" id="score-user">
+                    
                 </div>
             </div>
         </div>
         <div class="player">
             <div class="score-number">
                 <div class="text">
-                    <h3 id="go-to-challenge">Lời thách đâu</h3>
+                    <h3 id="go-to-challenge">Lời thách đấu</h3>
                 </div>
             </div>
         </div>
@@ -180,7 +180,7 @@ component.challengeScreen = `
                 <div class="text">
                     <h3>Điểm số</h3>
                 </div>
-                <div class="text">
+                <div class="text" id="score-user">
                     2157
                 </div>
             </div>
