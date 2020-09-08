@@ -4,7 +4,7 @@ component.login = `
 <div class="login-container">
 <div class="aside-right">
     <div class="header">
-        <img src="../img/avatar1.png">
+        <img src="./img/avatar1.png">
     </div>
     <form id="login-form">
         <div class="input-name-wrapper">
