@@ -85,37 +85,17 @@ component.lobby = `
     <div class="list-players">
         <!-- hình dáng của 1 player trông sẽ như này, chứ ko phải chia theo kiểu cột như thế kia, h style cho nó đi -->
         <div class="players">
-            <div class="player-sequence">1</div>
-            <div class="player-display-name">Chinh</div>
-            <div class="player-score">1024</div>
-            <div class="player-status">
-                <a href="#"><i class="fa fa-paper-plane"></i></a>
-            </div>
+            
         </div>
         
         <div class="players">
-            <div class="player-sequence">1</div>
-            <div class="player-display-name">Chinh</div>
-            <div class="player-score">1024</div>
-            <div class="player-status">
-                <a href="#"><i class="fa fa-paper-plane"></i></a>
-            </div>
+            
         </div>
         <div class="players">
-            <div class="player-sequence">1</div>
-            <div class="player-display-name">Chinh</div>
-            <div class="player-score">1024</div>
-            <div class="player-status">
-                <a href="#"><i class="fa fa-paper-plane"></i></a>
-            </div>
+            
         </div>
         <div class="players">
-            <div class="player-sequence">1</div>
-            <div class="player-display-name">Chinh</div>
-            <div class="player-score">1024</div>
-            <div class="player-status">
-                <a href="#"><i class="fa fa-paper-plane"></i></a>
-            </div>
+            
         </div>
     </div>
 
@@ -171,44 +151,16 @@ component.challengeScreen = `
     <div class="list-players">
         <!-- hình dáng của 1 player trông sẽ như này, chứ ko phải chia theo kiểu cột như thế kia, h style cho nó đi -->
         <div class="players">
-            <div class="player-sequence">1</div>
-            <div class="player-display-name">Chinh</div>
-            <div class="player-circle">
-                <a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
-            </div>
-            <div class="player-status">
-                <a href="#"><i class="fa fa-paper-plane"></i></a>
-            </div>
+            
         </div>
         <div class="players">
-            <div class="player-sequence">1</div>
-            <div class="player-display-name">Chinh</div>
-            <div class="player-circle">
-                <a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
-            </div>
-            <div class="player-status">
-                <a href="#"><i class="fa fa-paper-plane"></i></a>
-            </div>
+            
         </div>
         <div class="players">
-            <div class="player-sequence">1</div>
-            <div class="player-display-name">Chinh</div>
-            <div class="player-circle">
-                <a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
-            </div>
-            <div class="player-status">
-                <a href="#"><i class="fa fa-paper-plane"></i></a>
-            </div>
+            
         </div>
         <div class="players">
-            <div class="player-sequence">1</div>
-            <div class="player-display-name">Chinh</div>
-            <div class="player-circle">
-                <a href="#"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
-            </div>
-            <div class="player-status">
-                <a href="#"><i class="fa fa-paper-plane"></i></a>
-            </div>
+            
         </div>
     </div>
     <!-- Menu chính -->
@@ -263,16 +215,16 @@ component.fight = `
     </div>
     <form class="form-player">
         <div class="player">
-        <div class="player">
-        <div class = "score-number">
-            <div class="text">
-                <h3>Xin chào</h3>
+            <div class="player">
+                <div class="score-number">
+                    <div class="text">
+                        <h3>Xin chào</h3>
+                    </div>
+                    <div class="text">
+                        Thắng
+                    </div>
+                </div>
             </div>
-             <div class="text">
-                Thắng
-            </div>
-        </div>
-    </div>
         </div>
         <div class="player">
             <div class="score-number">
@@ -291,7 +243,14 @@ component.fight = `
                 </div>
             </div>
         </div>
+        <div class="player">
+            <div class="score-number">
+                <div class="text">
+                    <h3 id="back-lobby">Thoát</h3>
+                </div>
+            </div>
+        </div>
     </form>
 </div>
-</div>  
+</div>
 `;

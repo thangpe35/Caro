@@ -1,7 +1,7 @@
 const view = {};
 
 view.showScreen = function (name) {
-    controller.unsubscibeAll();
+    controller.unsubscribeAll();
 
     switch (name) {
         // login 
@@ -81,7 +81,12 @@ view.showScreen = function (name) {
 
         case 'fight':
             document.getElementById('app').innerHTML = component.fight
+            // controller.subscribeRealtimeUpdate.push(controller.listenCurrentChallengeUpdate());
             view.showCurrentChallenge()
+            const backLobby = document.getElementById('back-lobby')
+            backLobby.addEventListener('click', ()=>{
+                view.showScreen('lobby')
+            })
             break;
 
         case 'challengeScreen':
@@ -94,9 +99,6 @@ view.showScreen = function (name) {
                 view.showScreen('lobby')
             })
             break;
-
-
-
     }
 }
 
@@ -141,22 +143,20 @@ view.showChallenges = function () {
 
     document.querySelector('.list-players').innerHTML = html;
 }
-view.showPlayer = () =>{
-    let html ='';
-    for(let player of model.currentUser) {
-        html =`
-            <div class = "score-number">
-                <div class="text">
-                    <h3>Xin chào</h3>
-                </div>
-                 <div class="text">
-                    ${player.id}
-                </div>
-            </div>
-        `
-    }
-    document.querySelector('.player').innerHTML = html;
-}
+// view.showPlayer = () =>{
+//     let html = `
+//     <div class = "score-number">
+//                 <div class="text">
+//                     <h3>Xin chào</h3>
+//                 </div>
+//                  <div class="text">
+//                     ${model.currentUser}
+//                 </div>
+//             </div>
+//             `
+    
+//     document.querySelector('.player').innerHTML = html;
+// }
 view.showCurrentChallenge = function () {
     view.showTable();
 }
@@ -206,32 +206,32 @@ view.showTable = function () {
         }
         document.getElementById('table').appendChild(row);
     }
-    const mediaQuery = window.matchMedia('(max-width : 768px)')
-    if (mediaQuery.matches) {
-        for (let i = 0; i < table.length; i++) { // hàng
-            let row = document.createElement('div');
-            row.className = "row";
-            for (let j = 0; j < table[i].length; j++) { // cột
-                let cell = document.createElement('div');
-                cell.className = "cell";
-                // cell.onclick = function () {
-                //     if (this.innerHTML != '') return;
-                //     // view.checkCol(table, i, j)
-                //     // view.checkRow(table, i, j)
-                //     controller.hitOnTable(i, j);
-                // }
-                // if (table[i][j] == 0) {
-                //     cell.innerHTML = `<i class="fa fa-circle-thin"></i>`;
-                // } else if (table[i][j] == 1) {
-                //     cell.innerHTML = `<i class="fa fa-times"></i>`;
-                // } else {
-                //     cell.innerHTML = ''
-                // }
-                row.appendChild(cell);
-            }
-            document.getElementById('table').appendChild(row);
-        }
-    }
+    // const mediaQuery = window.matchMedia('(max-width : 768px)')
+    // if (mediaQuery.matches) {
+    //     for (let i = 0; i < table.length; i++) { // hàng
+    //         let row = document.createElement('div');
+    //         row.className = "row";
+    //         for (let j = 0; j < table[i].length; j++) { // cột
+    //             let cell = document.createElement('div');
+    //             cell.className = "cell";
+    //             cell.onclick = function () {
+    //                 if (this.innerHTML != '') return;
+    //                 // view.checkCol(table, i, j)
+    //                 // view.checkRow(table, i, j)
+    //                 controller.hitOnTable(i, j);
+    //             }
+    //             if (table[i][j] == 0) {
+    //                 cell.innerHTML = `<i class="fa fa-circle-thin"></i>`;
+    //             } else if (table[i][j] == 1) {
+    //                 cell.innerHTML = `<i class="fa fa-times"></i>`;
+    //             } else {
+    //                 cell.innerHTML = ''
+    //             }
+    //             row.appendChild(cell);
+    //         }
+    //         document.getElementById('table').appendChild(row);
+    //     }
+    // }
 
 }
 

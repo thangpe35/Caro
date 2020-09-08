@@ -2,7 +2,7 @@ const controller = {};
 
 controller.subscribeRealtimeUpdate = [];
 
-controller.unsubscibeAll = function () {
+controller.unsubscribeAll = function () {
     for (let unsubscribe of controller.subscribeRealtimeUpdate) {
         unsubscribe();
     }
@@ -190,9 +190,9 @@ controller.beginFight = async function (challenge) {
     });
 
     model.currentChallenge = challenge;
-    controller.listenCurrentChallengeUpdate();
     view.showScreen('fight');
-    
+
+
 }
 
 /**
@@ -220,12 +220,6 @@ controller.hitOnTable = function (i, j) {
     let newTable = JSON.parse(model.currentChallenge.table);
     newTable[i][j] = type;
 
-    // chỗ này còn phần check xem thằng nào thắng @@
-    let winner = checkTable(newTable);
-    if (winner != null) {
-        controller.endFight(winner);
-    }
-
     firebase.firestore().collection('challenges').doc(currentChallenge.id).update({
         table: JSON.stringify(newTable),
         currentTurn: currentTurn
@@ -233,9 +227,17 @@ controller.hitOnTable = function (i, j) {
 }
 
 controller.listenCurrentChallengeUpdate = async function () {
+
     firebase.firestore().collection('challenges').doc(model.currentChallenge.id).onSnapshot(function (doc) {
         model.currentChallenge = getDataFromDoc(doc);
+
         view.showTable();
+
+        let winner = checkTable(JSON.parse(model.currentChallenge.table));
+        if (winner != null) {
+            controller.endFight(winner);
+        }
+
     });
 }
 
@@ -255,6 +257,7 @@ controller.endFight = async function (winner) {
 
     // sau khi fight xong thì phải xóa challenge đi
     await firebase.firestore().collection('challenges').doc(model.currentChallenge.id).delete();
+    model.currentChallenge = null;
     view.showScreen("lobby");
 }
 

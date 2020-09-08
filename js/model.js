@@ -35,3 +35,6 @@ model.login = async (dataLogin) => {
         alert(err.message)
     }
 }
+
+// tạm thời ở màn fight m để cho a 1 nút là thoát, ngta bấm vào nút đấy thì ra lobby, chiều nay a có việc cần xài 3g :((
+    // h dùng nhiều quá hết 3g mất oke a ,

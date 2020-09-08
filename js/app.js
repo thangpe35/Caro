@@ -1,7 +1,5 @@
 window.onload = function () {
-
-    
-
+    // view.showScreen('login');
     firebase.auth().onAuthStateChanged(async function (user) {
         if (user) {
             // load score, status từ users
@@ -24,3 +22,21 @@ window.onload = function () {
         }
     });
 }
+
+// window.onbeforeunload = function () {
+//     let confirmExit = window.confirm('Bạn có muốn rời khỏi cuộc đấu?');
+
+//     if(confirmExit) {
+//         // let winner = null;
+//         // if(model.currentUser.email == challenge.from) {
+//         //     winner = 1;
+//         // } else if(model.currentUser.email == challenge.to) {
+//         //     winner = 0;
+//         // }
+//         // controller.endFight(winner);
+//     }
+// }
+
+// function exitScreen() {
+//     let confirmExit = window.confirm('Bạn có muốn rời khỏi cuộc đấu?');
+// }
